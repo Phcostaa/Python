@@ -22,7 +22,7 @@ while True:
         breaches = [senha, email, dica_senha, telefone, nome]
 
         # informa o tipo de dado pesquisado, celular ou e-mail
-        tipo_entrada = input('Digite se foi e-mal ou celular que foi utilizado para pesquisa\n')
+        tipo_entrada = input('Digite se foi email ou celular que foi utilizado para pesquisa\n')
         valor_entrada = input(f'Digite o {tipo_entrada} digitado\n')
 
         # informa quantidade de vazamentos no dado pesquisado
