@@ -9,14 +9,14 @@
 <body>
     <form action="" method='post'>
         <div>
-            <label for="username">Nome do usuário</label>
-            <input type="text" name="username" id="username" required>
+            <label for="username">Nome do usuário:</label>
+            <input type="text" name="username" id="username" value="{{user.username}}" required>
         </div>
         <div>
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" required>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" value="{{user.email}}" required>
         </div>
-        <input type="submit" value="Registrar!">
+        <input type="submit" value="Atualizar">
     </form>
 </body>
 </html>

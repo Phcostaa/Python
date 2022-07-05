@@ -13,7 +13,8 @@
         <li>{{user.username}}</li>
         <li>{{user.email}}</li>
     </ul>
-    <a href="{{url_for("delete", id=user.id)}}" style="margin-top:10px;">DELETAR</a>
+    <a href="{{url_for("delete", id=user.id)}}" style="margin-top:10px;margin-bottom:10px;">DELETAR</a>
+    <a href="{{url_for('update', id=user.id)}}">UPDATE</a>
 
 </body>
 </html>

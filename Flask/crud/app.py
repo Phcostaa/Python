@@ -54,5 +54,17 @@ def register():
     return render_template('register.html')
 
 
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    user = User.query.filter_by(id=id).first()
+    if request.method == 'POST':
+        user.username = request.form['username']
+        user.email = request.form['email']
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('update.html', user=user)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
