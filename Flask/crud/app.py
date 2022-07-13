@@ -10,15 +10,21 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+    username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
+    if request.method == "POST":
+        users = User.query.filter_by(
+            username=request.form['busca']).order_by(request.form['filtro'])
+        if request.form['busca'] == '':
+            users = User.query.order_by(request.form['filtro'])
+        return render_template("index.html", users=users)
     users = User.query.all()
     return render_template("index.html", users=users)
 
